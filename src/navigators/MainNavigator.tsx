@@ -6,15 +6,22 @@ import {
 import { Onboarding1 } from "../screens/Onboarding1";
 import { Onboarding2 } from "../screens/Onboarding2";
 import { Onboarding3 } from "../screens/Onboarding3";
+import {NavbarNavigator} from "../navigators/NavbarNavigator";
 import { Home } from "../screens/Home";
-
+import { NavigationContainer } from "@react-navigation/native";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import SettingsScreen from "../screens/SettingsScreen";
+import CourseListScreen from "../screens/CourseList";
+import ProfileScreen from "../screens/Profile";
+import Ionicons from "@expo/vector-icons/Ionicons";
+import { AboutStack } from "../screens/AppStack";
 export type ObjectScreens = {
   Onboarding1: undefined;
   Onboarding2: undefined;
   Onboarding3: undefined;
   Home: undefined;
+  Navbar: undefined;
 };
-
 const rootStack = createNativeStackNavigator<ObjectScreens>();
 
 export type RootStackScreenProps<T extends keyof ObjectScreens> =
@@ -41,10 +48,11 @@ export const MainNavigator = () => {
         />
         <rootStack.Screen
           name="Home"
-          component={Home}
+          component={NavbarNavigator}
           options={{ headerShown: false, animation: "fade" }}
         />
       </rootStack.Group>
     </rootStack.Navigator>
+   
   );
 };

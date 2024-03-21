@@ -15,6 +15,7 @@ import {
 import { RadioGroup } from "react-native-radio-buttons-group";
 import { SafeAreaView } from "react-native-safe-area-context";
 
+
 export const Home = ({ navigation }) => {
   // Declaración de variables y métodos para modificar su valor inicial
   const [visibleModal, setVisibleModal] = useState(false);
@@ -98,39 +99,22 @@ export const Home = ({ navigation }) => {
   };
 
   return (
+    
     <View>
       <SafeAreaView>
         <Text>Home</Text>
         <View style={styles.circleButtonContainer}>
-          <Pressable
-            onPress={showModal}
-            style={styles.circleButton}
-          >
-            <MaterialIcons
-              name="add"
-              size={24}
-              color="black"
-            />
+          <Pressable onPress={showModal} style={styles.circleButton}>
+            <MaterialIcons name="add" size={24} color="black" />
           </Pressable>
         </View>
 
-        <Modal
-          animationType="slide"
-          transparent={true}
-          visible={visibleModal}
-        >
+        <Modal animationType="slide" transparent={true} visible={visibleModal}>
           <View style={styles.modalContent}>
             <View style={styles.titleContainer}>
               <Text style={styles.modalTitle}>Registro</Text>
-              <Pressable
-                onPress={showModal}
-                style={styles.closeModal}
-              >
-                <MaterialIcons
-                  name="close"
-                  size={18}
-                  color="black"
-                />
+              <Pressable onPress={showModal} style={styles.closeModal}>
+                <MaterialIcons name="close" size={18} color="black" />
               </Pressable>
             </View>
             <View style={styles.content}>
@@ -192,10 +176,7 @@ export const Home = ({ navigation }) => {
               </View>
 
               <View style={styles.buttonSection}>
-                <Pressable
-                  onPress={handleDataForm}
-                  style={styles.sendButton}
-                >
+                <Pressable onPress={handleDataForm} style={styles.sendButton}>
                   <Text>Enviar</Text>
                 </Pressable>
               </View>
